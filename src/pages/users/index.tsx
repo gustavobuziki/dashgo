@@ -3,7 +3,7 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header, Pagination, Sidebar } from '../../components'
 
-export default function UsersList (){
+export default function UsersList() {
     return (
         <Box>
             <Header />
