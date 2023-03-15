@@ -53,7 +53,7 @@ export const Header = () => {
                 ml='auto'
             >
                 <HStack
-                    spacing='8'
+                    spacing='4'
                     mx='8'
                     pr='8'
                     py='1'
