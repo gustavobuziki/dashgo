@@ -1,41 +1,41 @@
-import { Box, Button, Divider, Flex, Heading, HStack, SimpleGrid, VStack} from "@chakra-ui/react";
+import * as c from "@chakra-ui/react";
 
 import { Header, Input, Sidebar } from '../../components'
 
 export default function CreateUser() {
     return (
-        <Box>
+        <c.Box>
             <Header />
 
-            <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
+            <c.Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
                 <Sidebar />
 
-                <Box flex='1' borderRadius={8} p='8' bg='gray.800'>
-                   <Heading size='lg' fontWeight='normal'>
+                <c.Box flex='1' borderRadius={8} p='8' bg='gray.800'>
+                   <c.Heading size='lg' fontWeight='normal'>
                         Criar usuário
-                    </Heading>
+                    </c.Heading>
 
-                    <Divider my='6' borderColor='gray.700' />
+                    <c.Divider my='6' borderColor='gray.700' />
 
-                    <VStack spacing='8'>
-                        <SimpleGrid minChildWidth='240px' spacing='8' w='100%'>
+                    <c.VStack spacing={['6', '8']}>
+                        <c.SimpleGrid minChildWidth='240px' spacing={['6', '8']} w='100%'>
                             <Input name='name' label='Nome completo'/>
                             <Input name='email' type='email' label='E-mail'/>
-                        </SimpleGrid>
-                        <SimpleGrid minChildWidth='240px' spacing='8' w='100%'>
+                        </c.SimpleGrid>
+                        <c.SimpleGrid minChildWidth='240px' spacing={['6', '8']} w='100%'>
                             <Input name='password' type='password' label='Senha'/>
                             <Input name='password-confirmation' type='password' label='Confirme a senha'/>
-                        </SimpleGrid>
-                    </VStack>
+                        </c.SimpleGrid>
+                    </c.VStack>
 
-                    <Flex mt='8' justify='flex-end'>
-                        <HStack spacing='4'>
-                            <Button colorScheme='whiteAlpha'>Cancelar</Button>
-                            <Button colorScheme='pink'>Salvar</Button>
-                        </HStack>
-                    </Flex>
-                </Box>
-            </Flex>
-        </Box>
+                    <c.Flex mt='8' justify='flex-end'>
+                        <c.HStack spacing='4'>
+                            <c.Button colorScheme='whiteAlpha'>Cancelar</c.Button>
+                            <c.Button colorScheme='pink'>Salvar</c.Button>
+                        </c.HStack>
+                    </c.Flex>
+                </c.Box>
+            </c.Flex>
+        </c.Box>
     )
 }

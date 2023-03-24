@@ -17,7 +17,7 @@ export const Input = ({label, name, ...props }: InputProps) => {
                 <InputText
                     name={name}
                     id={name}
-                    colorScheme='whiteAlpha'
+                    bgColor='gray.900'
                     focusBorderColor='pink.500'
                     variant='filled'
                     _hover={{

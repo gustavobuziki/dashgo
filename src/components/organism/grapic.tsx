@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic"
 
 import { Box, Text, theme } from "@chakra-ui/react"
-
 import { ApexOptions } from "apexcharts"
 
 interface GrapicProps {
@@ -65,7 +64,7 @@ export const Grapic = ({ title }: GrapicProps) => {
     }
 
     return (
-        <Box p='8' borderRadius='8' bg='gray.800'>
+        <Box p={['6', '8']} borderRadius='8' bg='gray.800'>
             <Text fontSize='lg' mb='4'>
                 {title}
             </Text>

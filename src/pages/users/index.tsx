@@ -1,73 +1,77 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import * as c from "@chakra-ui/react";
+import { useBreakpointValue } from "@chakra-ui/react";
+
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header, Pagination, Sidebar } from '../../components'
 
 export default function UsersList() {
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    })
+
     return (
-        <Box>
+        <c.Box>
             <Header />
 
-            <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
+            <c.Flex w='100%' my='6' maxWidth={1480} mx='2' px={['1', '6']}>
                 <Sidebar />
 
-                <Box flex='1' borderRadius={8} p='8' bg='gray.800'>
-                    <Flex mb='8' justify='space-between' align='center'>
-                        <Heading size='lg' fontWeight='normal'>
+                <c.Box flex={[null, '1']} borderRadius={8} p='8' bg='gray.800'>
+                    <c.Flex mb='8' justify='space-between' align='center'>
+                        <c.Heading size='lg' fontWeight='normal'>
                             Usuários
-                        </Heading>
-                        <Button 
+                        </c.Heading>
+                        <c.Button 
                             as='a' 
                             size='sm' 
                             fontSize='sm' 
                             colorScheme='pink'
-                            leftIcon={<Icon as={RiAddLine} fontSize='20' />}
+                            leftIcon={<c.Icon as={RiAddLine} fontSize='20' />}
                         >
                             Criar novo
-                        </Button>
-                    </Flex>
-                    <Table colorScheme='whiteAlpha'>
-                        <Thead>
-                            <Tr>
-                                <Th px='6' w='8' color='gray.300'>
-                                    <Checkbox colorScheme='pink' />
-                                </Th>
-                                <Th>Usuário</Th>
-                                <Th>Data de cadastro</Th>
-                                <Th w='8'></Th>
-                            </Tr>
-                        </Thead>
-                        <Tbody>
-                            <Tr px='6'>
-                                <Td>
-                                    <Checkbox colorScheme='pink' />
-                                </Td>
-                                <Td>
-                                    <Box>
-                                        <Text fontWeight='bold'>Gustavo Buziki</Text>
-                                        <Text fontSize='sm' color='gray.300'>gbuziki@gmail.com</Text>
-                                    </Box>
-                                </Td>
-                                <Td>
-                                   04 de Abril de 2023
-                                </Td>
-                                <Td>
-                                <Button 
+                        </c.Button>
+                    </c.Flex>
+                    <c.Table colorScheme='whiteAlpha'>
+                        <c.Thead>
+                            <c.Tr>
+                                <c.Th px={['4', '4', '6']} w='8' color='gray.300'>
+                                    <c.Checkbox colorScheme='pink' />
+                                </c.Th>
+                                <c.Th>Usuário</c.Th>
+                               { isWideVersion &&  <c.Th>Data de cadastro</c.Th> }
+                                <c.Th w='8'></c.Th>
+                            </c.Tr>
+                        </c.Thead>
+                        <c.Tbody>
+                            <c.Tr>
+                                <c.Td px={['4', '4', '6']}>
+                                    <c.Checkbox colorScheme='pink' />
+                                </c.Td>
+                                <c.Td>
+                                    <c.Box>
+                                        <c.Text fontWeight='bold'>Gustavo Buziki</c.Text>
+                                        <c.Text fontSize='sm' color='gray.300'>gbuziki@gmail.com</c.Text>
+                                    </c.Box>
+                                </c.Td>
+                                { isWideVersion && <c.Td>04 de Abril de 2023</c.Td> }
+                                <c.Td>
+                                <c.IconButton 
+                                    aria-label="Editar"
                                     as='a' 
                                     size='sm' 
                                     fontSize='sm' 
                                     colorScheme='purple'
-                                    leftIcon={<Icon as={RiPencilLine} fontSize='20' />}
-                                >
-                                    Editar
-                                </Button>
-                                </Td>
-                            </Tr>
-                        </Tbody>
-                    </Table>
+                                    icon={<c.Icon as={RiPencilLine} fontSize='20' />}
+                                />
+                                </c.Td>
+                            </c.Tr>
+                        </c.Tbody>
+                    </c.Table>
                     <Pagination />
-                </Box>
-            </Flex>
-        </Box>
+                </c.Box>
+            </c.Flex>
+        </c.Box>
     )
 }
