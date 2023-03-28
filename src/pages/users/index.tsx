@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import * as c from "@chakra-ui/react";
 import { useBreakpointValue } from "@chakra-ui/react";
 
@@ -15,7 +17,7 @@ export default function UsersList() {
         <c.Box>
             <Header />
 
-            <c.Flex w='100%' my='6' maxWidth={1480} mx='2' px={['1', '6']}>
+            <c.Flex w='100%' my='6' maxWidth={1480} mx='auto' px={['1', '6']}>
                 <Sidebar />
 
                 <c.Box flex={[null, '1']} borderRadius={8} p='8' bg='gray.800'>
@@ -23,15 +25,16 @@ export default function UsersList() {
                         <c.Heading size='lg' fontWeight='normal'>
                             Usuários
                         </c.Heading>
-                        <c.Button 
-                            as='a' 
-                            size='sm' 
-                            fontSize='sm' 
-                            colorScheme='pink'
-                            leftIcon={<c.Icon as={RiAddLine} fontSize='20' />}
-                        >
-                            Criar novo
-                        </c.Button>
+                        <Link href='users/create'>
+                            <c.Button 
+                                size='sm' 
+                                fontSize='sm' 
+                                colorScheme='pink'
+                                leftIcon={<c.Icon as={RiAddLine} fontSize='20' />}
+                            >
+                                Criar novo
+                            </c.Button>
+                        </Link>
                     </c.Flex>
                     <c.Table colorScheme='whiteAlpha'>
                         <c.Thead>
